@@ -621,11 +621,14 @@
         @media (max-width: 768px) {
             nav {
                 padding: 1rem 3%;
-                overflow-x: hidden;
+                flex-direction: row;
+                align-items: center;
+                gap: 1rem;
             }
 
             .logo {
                 height: 60px;
+                flex-shrink: 0;
             }
 
             .nav-links {
@@ -636,6 +639,7 @@
                 -webkit-overflow-scrolling: touch;
                 scrollbar-width: none;
                 padding: 0.5rem 0;
+                flex: 1;
             }
 
             .nav-links::-webkit-scrollbar {
