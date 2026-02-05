@@ -447,8 +447,10 @@
             box-shadow: 0 15px 40px rgba(107, 70, 193, 0.15);
         }
 
-        .training-card:last-child {
-            grid-column: span 3;
+        @media (min-width: 1024px) {
+            .training-card:last-child {
+                grid-column: span 3;
+            }
         }
 
         .training-card h4 {
