@@ -864,19 +864,10 @@
             }
         }
 
-       @media (max-width: 768px) {
-    section {
-        padding: 1.05rem 5%;
-    }
-    
-    .logo {
-        margin-left: 35px;
-    }
-    
-    .brand-name {
-        margin-left: 15px;
-    }
-}
+        @media (max-width: 768px) {
+            section {
+                padding: 1.05rem 5%;
+            }
 
             nav {
                 padding: 1rem 3%;
@@ -1131,10 +1122,11 @@
         	<div class="form-group">
             		<label for="message">Mesajınız</label>
             		<textarea id="message" name="message" required></textarea>
-        	</div>
+            	</div>
         	<button type="submit" class="btn btn-primary" style="width: 100%;">Gönder</button>
-    	</form>
-</div>
+		<form>
+		</div>
+	</div>
         </div>
     </section>
 
@@ -1302,6 +1294,7 @@
                 modal.style.display = 'none';
             }
         }
+
         // Smooth scrolling
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
@@ -1315,6 +1308,7 @@
                 }
             });
         });
+
     </script>
 </body>
 </html>
