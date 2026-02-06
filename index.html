@@ -1106,26 +1106,26 @@
             </div>
 
             <div class="contact-form">
-                <form>
-                    <div class="form-group">
-                        <label for="name">İsim Soyisim</label>
-                        <input type="text" id="name" name="name" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="email">E-posta</label>
-                        <input type="email" id="email" name="email" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="phone">Telefon</label>
-                        <input type="tel" id="phone" name="phone">
-                    </div>
-                    <div class="form-group">
-                        <label for="message">Mesajınız</label>
-                        <textarea id="message" name="message" required></textarea>
-                    </div>
-                    <button type="submit" class="btn btn-primary" style="width: 100%;">Gönder</button>
-                </form>
-            </div>
+    		<form action="https://formspree.io/f/mjgebqnp" method="POST">
+        		<div class="form-group">
+            			<label for="name">Adınız Soyadınız</label>
+            			<input type="text" id="name" name="name" required>
+        	</div>
+        	<div class="form-group">
+            		<label for="email">E-posta</label>
+            		<input type="email" id="email" name="email" required>
+        	</div>
+        	<div class="form-group">
+            		<label for="phone">Telefon</label>
+            		<input type="tel" id="phone" name="phone">
+        	</div>
+        	<div class="form-group">
+            		<label for="message">Mesajınız</label>
+            		<textarea id="message" name="message" required></textarea>
+        	</div>
+        	<button type="submit" class="btn btn-primary" style="width: 100%;">Gönder</button>
+    	</form>
+</div>
         </div>
     </section>
 
@@ -1293,7 +1293,6 @@
                 modal.style.display = 'none';
             }
         }
-
         // Smooth scrolling
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
@@ -1306,21 +1305,6 @@
                     });
                 }
             });
-        });
-
-        // Form submission
-        document.querySelector('form').addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            const formData = new FormData(e.target);
-            const name = formData.get('name');
-            const email = formData.get('email');
-            const phone = formData.get('phone');
-            const message = formData.get('message');
-            
-            const mailtoLink = `mailto:info@mill.tr?subject=Mill Web Sitesi İletişim Formu - ${name}&body=İsim: ${name}%0D%0AE-posta: ${email}%0D%0ATelefon: ${phone}%0D%0A%0D%0AMesaj:%0D%0A${message}`;
-            
-            window.location.href = mailtoLink;
         });
     </script>
 </body>
