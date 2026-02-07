@@ -36,15 +36,14 @@
             font-family: 'Syne', sans-serif;
             font-weight: 700;
         }
-	
 	.brand-name {
-    		font-family: 'Syne', sans-serif;
-    		font-size: 0.9rem;
-    		font-weight: 700;
-    		color: #6B46C1;
-    		display: block;        ← Ekleyin
-    		margin-left: 0;        ← Sıfırlayın
-    		margin-top: 10px;      ← Üstten boşluk
+    	    font-family: 'Syne', sans-serif;
+    	    font-size: 0.9rem;
+            font-weight: 700;
+            color: #6B46C1;
+            display: block;        ← Ekleyin
+            margin-left: 0;        ← Sıfırlayın
+            margin-top: 10px;      ← Üstten boşluk
 	}
 
         /* Navigation */
@@ -53,7 +52,7 @@
             top: 0;
             left: 0;
             right: 0;
-            background: rgba(255, 255, 255, 0.25);
+            background: rgba(255, 255, 255, 0);
             backdrop-filter: blur(10px);
             padding: 1.5rem 5%;
             display: flex;
@@ -80,10 +79,18 @@
             animation: fadeIn 0.8s ease 0.3s both;
         }
 
+	.logo-container {
+    	    display: flex;
+            flex-direction: column;
+            align-items: center;
+	    background: transparent;
+	}
+	
         .nav-links {
             display: flex;
             gap: 2.5rem;
             list-style: none;
+	    padding-top: 38px 
         }
 
         .nav-links a {
@@ -93,6 +100,7 @@
             font-size: 0.95rem;
             transition: all 0.3s ease;
             position: relative;
+	    opacity: 0.8;
         }
 
         .nav-links a::after {
@@ -107,7 +115,7 @@
         }
 
         .nav-links a:hover {
-            color: #5B3BA8;
+            color: var(--primary);
         }
 
         .nav-links a:hover::after {
@@ -233,7 +241,7 @@
         .btn-secondary:hover {
             background: var(--primary);
             color: var(--white);
-        }
+        }nav
 
         /* Section Styles */
         section {
@@ -347,6 +355,9 @@
             box-shadow: 0 10px 40px rgba(107, 70, 193, 0.08);
             margin-bottom: 2rem;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
+	    max-width: 1200px;
+    	    margin-left: auto;
+    	    margin-right: auto;
         }
 
         .approach-card:hover {
@@ -439,6 +450,9 @@
             grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
             gap: 2rem;
             margin-top: 3rem;
+	    max-width: 1200px;
+    	    margin-left: auto;
+    	    margin-right: auto;
         }
 
         .training-card {
@@ -515,6 +529,9 @@
             grid-template-columns: 1fr 1fr;
             gap: 4rem;
             align-items: start;
+	    max-width: 1200px;
+    	    margin-left: auto;
+    	    margin-right: auto;
         }
 
         .contact-info {
@@ -797,6 +814,7 @@
         footer {
             background: var(--white);
             padding: 3rem 5%;
+	    margin-top: 19px;
             text-align: center;
             border-top: 1px solid rgba(107, 70, 193, 0.1);
         }
@@ -865,14 +883,9 @@
         }
 
         @media (max-width: 768px) {
-    .logo {
-        margin-left: 37px;
-    }
-    
-    .brand-name {
-        margin-left: 10px;
-    }
-}
+            section {
+                padding: 1.05rem 5%;
+            }
 
             nav {
                 padding: 1rem 3%;
@@ -979,15 +992,118 @@
                 font-size: 2rem;
             }
         }
+
+        /* Client Logos Section */
+        .clients-section {
+            padding: 4rem 5%;
+            background: var(--bg);
+            overflow: hidden;
+        }
+
+        .clients-section .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 3rem;
+        }
+
+        .logos-slider {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .logo-row {
+            display: flex;
+            gap: 1px;
+            animation-duration: 30s;
+            animation-timing-function: linear;
+            animation-iteration-count: infinite;
+        }
+
+        .logo-row-1 {
+            animation-name: slideRight;
+        }
+
+        .logo-row-2 {
+            animation-name: slideLeft;
+        }
+
+        .logo-row-3 {
+            animation-name: slideRight;
+        }
+
+        .logo-item {
+            flex-shrink: 0;
+            width: 100px;
+            height: 100px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: white;
+            border-radius: 12px;
+            padding: 15px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+        }
+
+        .logo-item:hover {
+            transform: scale(1.1);
+            box-shadow: 0 4px 20px rgba(107, 70, 193, 0.15);
+        }
+
+        .logo-item img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+            filter: grayscale(100%);
+            opacity: 0.7;
+            transition: all 0.3s ease;
+        }
+
+        .logo-item:hover img {
+            filter: grayscale(0%);
+            opacity: 1;
+        }
+
+        @keyframes slideRight {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+
+        @keyframes slideLeft {
+            0% {
+                transform: translateX(-50%);
+            }
+            100% {
+                transform: translateX(0);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .logo-item {
+                width: 80px;
+                height: 80px;
+                padding: 10px;
+            }
+            
+            .clients-section .section-title {
+                font-size: 1.8rem;
+            }
+        }
     </style>
 </head>
 <body>
     <!-- Navigation -->
     <nav>
 	<div class="logo-container">
-        	<img src="mill yeni logo1.png" alt="Mill Logo" class="logo">
+        	<img src="Mill Logo.png" alt="Mill Logo" class="logo">
 		<span class="brand-name">Mill Danışmanlık</span>
-	</div>
+    	</div>
         <ul class="nav-links">
             <li><a href="#home">Ana Sayfa</a></li>
             <li><a href="#approach">Mill Yaklaşımı</a></li>
@@ -1025,7 +1141,7 @@
                 </button>
                 
                 <button class="approach-button">
-                    Rekabete göre satış hedeflerine ulaşmaya yardımcı olabilecek teknikleri paylaşıyoruz.
+                    Rekabete göre satış hedeflerine ulaşmaya yardımcı olabilecek teknikleri paylaşıyoruz
                 </button>
             </div>
         </div>
@@ -1076,6 +1192,86 @@
         </div>
     </section>
 
+<!-- Client Logos Section -->
+    <section class="clients-section">
+        <h2 class="section-title">Hizmet Verdiğimiz Firmalar</h2>
+        
+        <div class="logos-slider">
+            <!-- Row 1 - 10 logos (slides right) -->
+            <div class="logo-row logo-row-1">
+                <div class="logo-item"><img src="referans logoları/abdiibrahim.png" alt="Abdi İbrahim"></div>
+                <div class="logo-item"><img src="referans logoları/abbott.png" alt="Abbott"></div>
+                <div class="logo-item"><img src="referans logoları/adeka.png" alt="Adeka"></div>
+                <div class="logo-item"><img src="referans logoları/aliraif.png" alt="Ali Raif"></div>
+                <div class="logo-item"><img src="referans logoları/angelini.png" alt="Angelini"></div>
+                <div class="logo-item"><img src="referans logoları/astrazeneca.png" alt="AstraZeneca"></div>
+                <div class="logo-item"><img src="referans logoları/amgen.png" alt="Amgen"></div>
+                <div class="logo-item"><img src="referans logoları/basel.png" alt="Basel"></div>
+                <div class="logo-item"><img src="referans logoları/berko.png" alt="Berko"></div>
+                <div class="logo-item"><img src="referans logoları/boehringeringelheim.png" alt="Boehringer Ingelheim"></div>
+                <!-- Duplicate for infinite scroll -->
+                <div class="logo-item"><img src="referans logoları/abdiibrahim.png" alt="Abdi İbrahim"></div>
+                <div class="logo-item"><img src="referans logoları/abbott.png" alt="Abbott"></div>
+                <div class="logo-item"><img src="referans logoları/adeka.png" alt="Adeka"></div>
+                <div class="logo-item"><img src="referans logoları/aliraif.png" alt="Ali Raif"></div>
+                <div class="logo-item"><img src="referans logoları/angelini.png" alt="Angelini"></div>
+                <div class="logo-item"><img src="referans logoları/astrazeneca.png" alt="AstraZeneca"></div>
+                <div class="logo-item"><img src="referans logoları/amgen.png" alt="Amgen"></div>
+                <div class="logo-item"><img src="referans logoları/basel.png" alt="Basel"></div>
+                <div class="logo-item"><img src="referans logoları/berko.png" alt="Berko"></div>
+                <div class="logo-item"><img src="referans logoları/boehringeringelheim.png" alt="Boehringer Ingelheim"></div>
+            </div>
+            
+            <!-- Row 2 - 10 logos (slides left) -->
+            <div class="logo-row logo-row-2">
+                <div class="logo-item"><img src="referans logoları/chiesi.png" alt="Chiesi"></div>
+                <div class="logo-item"><img src="referans logoları/drogsan.png" alt="Drogsan"></div>
+                <div class="logo-item"><img src="referans logoları/eczacibasi.png" alt="Eczacıbaşı"></div>
+                <div class="logo-item"><img src="referans logoları/er-kim.png" alt="Er-Kim"></div>
+                <div class="logo-item"><img src="referans logoları/genveon.png" alt="Genveon"></div>
+                <div class="logo-item"><img src="referans logoları/humanis.png" alt="Humanis"></div>
+                <div class="logo-item"><img src="referans logoları/ilko.png" alt="İlko"></div>
+                <div class="logo-item"><img src="referans logoları/jasopharma.png" alt="Jasopharma"></div>
+                <div class="logo-item"><img src="referans logoları/kansuk.png" alt="Kansuk"></div>
+                <div class="logo-item"><img src="referans logoları/l'oreal.png" alt="L'Oreal"></div>
+                <!-- Duplicate for infinite scroll -->
+                <div class="logo-item"><img src="referans logoları/chiesi.png" alt="Chiesi"></div>
+                <div class="logo-item"><img src="referans logoları/drogsan.png" alt="Drogsan"></div>
+                <div class="logo-item"><img src="referans logoları/eczacibasi.png" alt="Eczacıbaşı"></div>
+                <div class="logo-item"><img src="referans logoları/er-kim.png" alt="Er-Kim"></div>
+                <div class="logo-item"><img src="referans logoları/genveon.png" alt="Genveon"></div>
+                <div class="logo-item"><img src="referans logoları/humanis.png" alt="Humanis"></div>
+                <div class="logo-item"><img src="referans logoları/ilko.png" alt="İlko"></div>
+                <div class="logo-item"><img src="referans logoları/jasopharma.png" alt="Jasopharma"></div>
+                <div class="logo-item"><img src="referans logoları/kansuk.png" alt="Kansuk"></div>
+                <div class="logo-item"><img src="referans logoları/l'oreal.png" alt="L'Oreal"></div>
+            </div>
+            
+            <!-- Row 3 - 9 logos (slides right) -->
+            <div class="logo-row logo-row-3">
+                <div class="logo-item"><img src="referans logoları/menarini.png" alt="Menarini"></div>
+                <div class="logo-item"><img src="referans logoları/nobel.png" alt="Nobel"></div>
+                <div class="logo-item"><img src="referans logoları/novonordisk.png" alt="Novo Nordisk"></div>
+                <div class="logo-item"><img src="referans logoları/organon.png" alt="Organon"></div>
+                <div class="logo-item"><img src="referans logoları/pfizer.png" alt="Pfizer"></div>
+                <div class="logo-item"><img src="referans logoları/santafarma.png" alt="Santa Farma"></div>
+                <div class="logo-item"><img src="referans logoları/tkilac.png" alt="TK İlaç"></div>
+                <div class="logo-item"><img src="referans logoları/ucb.png" alt="UCB"></div>
+	        <div class="logo-item"><img src="referans logoları/mill.png" alt="Mill"></div>
+                <!-- Duplicate for infinite scroll -->
+                <div class="logo-item"><img src="referans logoları/menarini.png" alt="Menarini"></div>
+                <div class="logo-item"><img src="referans logoları/nobel.png" alt="Nobel"></div>
+                <div class="logo-item"><img src="referans logoları/novonordisk.png" alt="Novo Nordisk"></div>
+                <div class="logo-item"><img src="referans logoları/organon.png" alt="Organon"></div>
+                <div class="logo-item"><img src="referans logoları/pfizer.png" alt="Pfizer"></div>
+                <div class="logo-item"><img src="referans logoları/santafarma.png" alt="Santa Farma"></div>
+                <div class="logo-item"><img src="referans logoları/tkilac.png" alt="TK İlaç"></div>
+                <div class="logo-item"><img src="referans logoları/ucb.png" alt="UCB"></div>
+		<div class="logo-item"><img src="referans logoları/mill.png" alt="Mill"></div>
+            </div>
+        </div>
+    </section>
+
     <!-- Contact Section -->
     <section id="contact">
         <h2 class="section-title">İletişim</h2>
@@ -1087,7 +1283,7 @@
                     <div class="contact-icon">✉️</div>
                     <div>
                         <h4>E-posta</h4>
-                        <a href="mailto:info@mill.tr">info@mill.tr</a>
+                        <a href="/cdn-cgi/l/email-protection#4c25222a230c21252020622b292262383e"><span class="__cf_email__" data-cfemail="127b7c747d527f7b7e7e3c75777c3c6660">[email&#160;protected]</span></a>
                     </div>
                 </div>
                 <div class="contact-item">
@@ -1111,27 +1307,26 @@
             </div>
 
             <div class="contact-form">
-    		<form action="https://formspree.io/f/mjgebqnp" method="POST">
-        		<div class="form-group">
-            			<label for="name">Adınız Soyadınız</label>
-            			<input type="text" id="name" name="name" required>
-        	</div>
-        	<div class="form-group">
-            		<label for="email">E-posta</label>
-            		<input type="email" id="email" name="email" required>
-        	</div>
-        	<div class="form-group">
-            		<label for="phone">Telefon</label>
-            		<input type="tel" id="phone" name="phone">
-        	</div>
-        	<div class="form-group">
-            		<label for="message">Mesajınız</label>
-            		<textarea id="message" name="message" required></textarea>
-            	</div>
-        	<button type="submit" class="btn btn-primary" style="width: 100%;">Gönder</button>
-		<form>
-		</div>
-	</div>
+                <form>
+                    <div class="form-group">
+                        <label for="name">İsim Soyisim</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">E-posta</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Telefon</label>
+                        <input type="tel" id="phone" name="phone">
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Mesajınız</label>
+                        <textarea id="message" name="message" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary" style="width: 100%;">Gönder</button>
+                </form>
+            </div>
         </div>
     </section>
 
@@ -1148,7 +1343,9 @@
         </div>
     </div>
 
-    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+    <script>
         const trainings = {
             spin: {
                 title: "Hasta Odaklı Tanıtım",
@@ -1314,6 +1511,7 @@
             });
         });
 
-    </script>
+        </script>
 </body>
 </html>
+     
